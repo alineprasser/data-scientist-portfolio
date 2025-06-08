@@ -74,7 +74,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen w-full bg-primary text-muted">
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-30"
+        className="absolute inset-0 w-screen h-screen opacity-30"
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
