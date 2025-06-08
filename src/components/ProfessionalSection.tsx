@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -130,10 +131,10 @@ const TimelineItem = ({
         <TimelineIcon />
       </div>
       <div
-        className={`${containerClass} ${marginClass} w-[85vw] md:w-[40vw] lg:w-[30vw]`}>
-        <Card className="hover:shadow-lg transition-shadow duration-300 w-full">
+        className={`${containerClass} ${marginClass} w-[85dvw] md:w-[40dvw] lg:w-[40dvw] relative overflow-hidden group`}>
+        <Card className="hover:shadow-lg bg-background sm:bg-primary z-0 group-hover:bg-background  border-secondary transition-discrete  duration-300 w-full">
           <CardHeader className="flex flex-col gap-0 p-4">
-            <CardTitle className="text-lg flex flex-col gap-0 font-normal font-sedan">
+            <CardTitle className="text-lg text-primary sm:text-accent group-hover:text-primary flex flex-col gap-0 font-normal font-sedan">
               {item.title}
               <span className="font-mono italic text-sm text-muted-foreground">
                 {item.year} • {item.company}
@@ -141,24 +142,23 @@ const TimelineItem = ({
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-4 p-4 pt-0">
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            <p className="text-primary sm:text-muted group-hover:text-primary text-sm sm:text-base leading-relaxed">
               {item.description}
             </p>
             {item.skills && (
-              <div className="relative w-full">
-                <div className="w-full overflow-hidden">
-                  <div className="flex gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-accent scrollbar-track-transparent hover:scrollbar-thumb-accent/80 pb-2">
-                    {item.skills.map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="accent"
-                        className="whitespace-nowrap text-xs sm:text-sm flex-shrink-0">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+              <div
+                className={cn(
+                  "flex flex-wrap justify-start gap-2 pb-2",
+                  isStart && "md:justify-end"
+                )}>
+                {item.skills.map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="accent"
+                    className="text-xs sm:text-sm ">
+                    {skill}
+                  </Badge>
+                ))}
               </div>
             )}
           </CardContent>
@@ -171,7 +171,7 @@ const TimelineItem = ({
 
 export default function ProfessionalSection() {
   return (
-    <section className="container min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+    <section className=" min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
       <h2 className="text-4xl font-bold text-center">
         Experiência Profissional
       </h2>

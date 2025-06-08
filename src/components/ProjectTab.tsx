@@ -18,7 +18,7 @@ export default function ProjectTab({
       <input
         type="radio"
         name="project_tabs"
-        className="tab transition-all duration-300 w-full sm:w-1/2"
+        className="tab transition-all cursor-pointer rounded-lg duration-300"
         aria-label={title}
         defaultChecked={defaultChecked}
         id={id}
