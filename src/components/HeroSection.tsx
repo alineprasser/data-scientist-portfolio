@@ -2,6 +2,7 @@ import { PiGithubLogo } from "react-icons/pi";
 import { Button } from "./ui/button";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef } from "react";
+import TypewriterComponent from "typewriter-effect";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -80,16 +81,31 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full py-16 lg:py-0">
           <div className="flex flex-col gap-6 lg:gap-8 relative z-10 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             <div className="flex flex-col gap-4 items-center lg:items-start">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold animate-fade-in leading-tight">
-                Hey, I&apos;m a <br />
+              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold animate-fade-in leading-tight">
+                Olá, sou o <br />
                 <span className="text-accent animate-gradient bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text">
-                  Data Scientist
+                  Matheus Melotti 🖥️
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-muted/90 animate-slide-up max-w-xl mx-auto lg:mx-0">
-                I love turning messy data into beautiful insights! When I'm not
-                coding in Python, I'm probably discovering cool patterns with
-                machine learning or creating stunning visualizations.
+                Combino ciência de dados, engenharia e visão prática para criar
+                soluções inteligentes e escaláveis.{" "}
+                <span className="font-sedan text-accent relative ">
+                  <TypewriterComponent
+                    options={{
+                      strings: [
+                        "Tecnologia para resolver, não complicar.",
+                        "Ciência de dados na prática, com propósito.",
+                        "Dados bem trabalhados resolvem grandes problemas.",
+                        "Tecnologia com propósito, dados com direção.",
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      delay: 60,
+                      deleteSpeed: 10,
+                    }}
+                  />
+                </span>
               </p>
             </div>
 
@@ -100,7 +116,7 @@ export default function HeroSection() {
                   target="_blank"
                   className="flex items-center justify-center gap-2">
                   <FaLinkedin className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
-                  Let&apos;s connect
+                  LinkedIn
                 </a>
               </Button>
               <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
@@ -109,7 +125,7 @@ export default function HeroSection() {
                   target="_blank"
                   className="flex items-center justify-center gap-2">
                   <PiGithubLogo className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
-                  Check out my work
+                  GitHub
                 </a>
               </Button>
             </div>
