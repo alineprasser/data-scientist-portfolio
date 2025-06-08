@@ -1,42 +1,133 @@
 import { PiGithubLogo } from "react-icons/pi";
 import { Button } from "./ui/button";
 import { FaLinkedin } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const particles: Array<{
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+    }> = [];
+
+    for (let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: Math.random() * 0.5 - 0.25,
+        speedY: Math.random() * 0.5 - 0.25,
+        opacity: Math.random() * 0.5 + 0.2,
+      });
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center w-screen bg-primary text-muted min-h-screen">
-      <div className="flex h-full flex-col gap-5 items-start px-20 py-32">
-        <h1 className="text-4xl text-start font-bold">
-          Hey, I&apos;m a <br />
-          <span className="text-accent">Data Scientist</span>
-        </h1>
-        <p className="text-start text-lg text-muted">
-          I love turning messy data into beautiful insights! When I'm not coding
-          in Python, I'm probably discovering cool patterns with machine
-          learning or creating stunning visualizations.
-        </p>
-        <div className="flex gap-4">
-          <Button className="bg-accent text-primary px-4 py-2 rounded-md">
-            <a
-              href="https://www.linkedin.com/in/matheusmelotti/"
-              target="_blank"
-              className="flex items-center gap-2">
-              <FaLinkedin />
-              Let&apos;s connect
-            </a>
-          </Button>
-          <Button className="bg-accent text-primary px-4 py-2 rounded-md">
-            <PiGithubLogo />
-            Check out my work
-          </Button>
+    <section className="relative min-h-screen w-full bg-primary text-muted">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full opacity-30"
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full py-16 lg:py-0">
+          <div className="flex flex-col gap-6 lg:gap-8 relative z-10 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <div className="flex flex-col gap-4 items-center lg:items-start">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold animate-fade-in leading-tight">
+                Hey, I&apos;m a <br />
+                <span className="text-accent animate-gradient bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text">
+                  Data Scientist
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg lg:text-xl text-muted/90 animate-slide-up max-w-xl mx-auto lg:mx-0">
+                I love turning messy data into beautiful insights! When I'm not
+                coding in Python, I'm probably discovering cool patterns with
+                machine learning or creating stunning visualizations.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up-delayed mt-4">
+              <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
+                <a
+                  href="https://www.linkedin.com/in/matheusmelotti/"
+                  target="_blank"
+                  className="flex items-center justify-center gap-2">
+                  <FaLinkedin className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
+                  Let&apos;s connect
+                </a>
+              </Button>
+              <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
+                <a
+                  href="https://github.com/melottii"
+                  target="_blank"
+                  className="flex items-center justify-center gap-2">
+                  <PiGithubLogo className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
+                  Check out my work
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative flex items-center justify-center lg:justify-end mb-8 lg:mb-0">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96">
+              <div className="absolute inset-0 bg-accent/20 rounded-full blur-2xl animate-pulse-slow"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-transparent rounded-full animate-rotate-slow"></div>
+              <img
+                ref={imageRef}
+                src="/matheus.jpeg"
+                alt="Matheus Melotti"
+                className="relative w-full h-full rounded-full object-cover border-4 border-accent/20 shadow-2xl animate-float-slow hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex relative h-full flex-col items-center justify-center">
-        <img
-          src="/matheus.jpeg"
-          alt="Matheus Melotti"
-          className="w-1/2 z-10 rounded-full object-contain"
-        />
       </div>
     </section>
   );
