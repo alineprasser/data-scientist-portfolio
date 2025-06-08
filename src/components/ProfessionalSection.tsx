@@ -140,7 +140,7 @@ const TimelineItem = ({
               </span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex  flex-col gap-3 p-4 pt-0">
+          <CardContent className="flex flex-col gap-4 p-4 pt-0">
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
               {item.description}
             </p>
