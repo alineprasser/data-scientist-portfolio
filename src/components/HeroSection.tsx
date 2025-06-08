@@ -87,7 +87,7 @@ export default function HeroSection() {
                   Matheus Melotti 🖥️
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-muted/90 animate-slide-up max-w-xl mx-auto lg:mx-0">
+              <div className="text-base sm:text-lg lg:text-xl text-muted/90 animate-slide-up max-w-xl mx-auto lg:mx-0">
                 Combino ciência de dados, engenharia e visão prática para criar
                 soluções inteligentes e escaláveis.{" "}
                 <span className="font-sedan text-accent relative ">
@@ -106,7 +106,7 @@ export default function HeroSection() {
                     }}
                   />
                 </span>
-              </p>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up-delayed mt-4">
