@@ -1,3 +1,4 @@
+import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 interface TimelineItem {
@@ -6,6 +7,7 @@ interface TimelineItem {
   description: string;
   company: string;
   position: "start" | "end";
+  skills?: string[];
 }
 
 const timelineData: TimelineItem[] = [
@@ -13,25 +15,76 @@ const timelineData: TimelineItem[] = [
     year: "Jul 2024 - Atual",
     title: "Cientista de Dados Sênior",
     description:
-      "Atuo como líder técnico na construção de soluções analíticas, unindo visão de arquitetura com mão na massa. Tenho experiência com ambientes diversos — como Cloudera, Kubernetes e SAS — e foco em orquestrar microserviços e sistemas robustos para lidar com grandes volumes de dados. Desenvolvi e implementei soluções de OCR para automação do processamento de documentos e aplico modelos de machine learning voltados à previsão, classificação e extração de informações, como regiões de interesse e entidades nomeadas. Gosto de transformar dados em decisões, estruturando pipelines que garantem integridade, eficiência e resultados reais.",
+      "Líder técnico em soluções analíticas, com foco em arquitetura e implementação. Experiência em ambientes como Cloudera, Kubernetes e SAS, orquestrando microserviços para grandes volumes de dados. Atuei com OCR e modelos de machine learning para automação, previsão e extração de informações. Gosto de transformar dados em decisões por meio de pipelines eficientes e confiáveis.",
     company: "Vert Analytics",
     position: "start",
+    skills: [
+      "Desenvolvimento de modelos de regiões de interesse",
+      "Liderança",
+      "Arquitetura de soluções",
+      "OCR",
+      "Estatística",
+      "Reconhecimento óptico de caracteres",
+      "Cicd",
+      "Kubernetes",
+      "MLflow",
+      "DevOps",
+      "Pandas (Software)",
+      "Mineração de dados",
+      "NLP",
+      "Sistemas de inteligência artificial",
+      "MLOps",
+      "Git",
+      "cd4ml",
+    ],
   },
   {
     year: "Mai 2022 - Jul 2024",
     title: "Cientista de Dados Pleno",
     description:
-      "Atuei na construção de arquiteturas robustas que integravam diferentes ambientes (Cloudera, Kubernetes, SAS), com foco em escalabilidade e eficiência. Trabalhei com orquestração de microserviços em Kubernetes e liderei o desenvolvimento de soluções de OCR para automatizar o processamento de documentos, tanto digitais quanto físicos. No campo da análise de dados, apliquei técnicas estatísticas avançadas para gerar insights estratégicos e embasar decisões. Também desenvolvi modelos de machine learning voltados para previsão, classificação, extração de regiões de interesse e entidades nomeadas — sempre com atenção à qualidade e à estrutura dos dados que sustentavam essas soluções.",
+      "Construi arquiteturas escaláveis integrando ambientes como Cloudera, Kubernetes e SAS. Liderei a orquestração de microserviços em Kubernetes e desenvolvi soluções de OCR para automação de documentos. Apliquei estatística avançada e machine learning em tarefas de previsão, classificação e extração de informações (regiões de interesse e entidades nomeadas), sempre priorizando a qualidade e estrutura dos dados.",
     company: "Vert Analytics",
     position: "end",
+    skills: [
+      "Desenvolvimento de modelos de regiões de interesse",
+      "Arquitetura de soluções",
+      "OCR",
+      "SAS",
+      "Estatística",
+      "Reconhecimento óptico de caracteres",
+      "SAS Visual Analytics",
+      "Mineração de textos",
+      "Kubernetes",
+      "Programação SAS",
+      "Análise de dados",
+      "DevOps",
+      "Pandas (Software)",
+      "Mineração de dados",
+      "NLP",
+      "Sistemas de inteligência artificial",
+      "Git",
+    ],
   },
   {
     year: "Fev 2022 - Mai 2022",
     title: "Cientista de Dados Júnior",
     description:
-      "Tenho experiência no desenvolvimento de arquiteturas voltadas à mineração de texto e processamento inteligente de documentos. Participo ativamente de reuniões com clientes, desde o planejamento até a apresentação de resultados. Também atuo na análise de dados para construção de dashboards, no desenho de infraestrutura para OCR e no planejamento de estratégias para otimização de performance dos sistemas, sempre buscando eficiência e escalabilidade.",
+      "Experiência no desenvolvimento de arquiteturas para mineração de texto e processamento inteligente de documentos. Atuação em toda a jornada com o cliente — do planejamento à entrega de resultados. Envolvimento com análise de dados, construção de dashboards, infraestrutura para OCR e estratégias de otimização de performance com foco em eficiência e escalabilidade.",
     company: "Vert Analytics",
     position: "start",
+    skills: [
+      "Arquitetura de soluções",
+      "OCR",
+      "Estatística",
+      "Reconhecimento óptico de caracteres",
+      "Kubernetes",
+      "DevOps",
+      "Pandas (Software)",
+      "Mineração de dados",
+      "NLP",
+      "Sistemas de inteligência artificial",
+      "Git",
+    ],
   },
   {
     year: "Jul 2020 - Mar 2021",
@@ -66,26 +119,48 @@ const TimelineItem = ({
 }) => {
   const isStart = item.position === "start";
   const containerClass = isStart
-    ? "timeline-start md:text-end"
+    ? "timeline-start text-start md:text-end"
     : "timeline-end text-start";
   const marginClass = isStart && "md:mb-10";
 
   return (
-    <li>
+    <li className="w-full">
       {index !== 0 && <hr />}
       <div className="timeline-middle">
         <TimelineIcon />
       </div>
-      <div className={`text-start ${containerClass} ${marginClass}`}>
-        <Card className="hover:shadow-lg transition-shadow duration-300">
-          <CardHeader>
-            <CardTitle className="text-lg font-sedan">{item.title}</CardTitle>
-            <p className="font-mono italic text-sm text-muted-foreground">
-              {item.year} / {item.company}
-            </p>
+      <div
+        className={`${containerClass} ${marginClass} w-[85vw] md:w-[40vw] lg:w-[30vw]`}>
+        <Card className="hover:shadow-lg transition-shadow duration-300 w-full">
+          <CardHeader className="flex flex-col gap-0 p-4">
+            <CardTitle className="text-lg flex flex-col gap-0 font-normal font-sedan">
+              {item.title}
+              <span className="font-mono italic text-sm text-muted-foreground">
+                {item.year} • {item.company}
+              </span>
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">{item.description}</p>
+          <CardContent className="flex  flex-col gap-3 p-4 pt-0">
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              {item.description}
+            </p>
+            {item.skills && (
+              <div className="relative w-full">
+                <div className="w-full overflow-hidden">
+                  <div className="flex gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-accent scrollbar-track-transparent hover:scrollbar-thumb-accent/80 pb-2">
+                    {item.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        variant="accent"
+                        className="whitespace-nowrap text-xs sm:text-sm flex-shrink-0">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -96,9 +171,11 @@ const TimelineItem = ({
 
 export default function ProfessionalSection() {
   return (
-    <div className="container min-h-screen w-full flex flex-col gap-10 items-center justify-center px-4 sm:px-6 lg:px-10 py-12">
-      <h2 className="text-4xl font-bold">Experiência Profissional</h2>
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+    <div className="container min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+      <h2 className="text-4xl font-bold text-center">
+        Experiência Profissional
+      </h2>
+      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-6xl">
         {timelineData.map((item, index) => (
           <TimelineItem
             key={`${item.year}-${index}`}
