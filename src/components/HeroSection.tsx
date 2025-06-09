@@ -110,24 +110,24 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up-delayed mt-4">
-              <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
-                <a
-                  href="https://www.linkedin.com/in/matheusmelotti/"
-                  target="_blank"
-                  className="flex items-center justify-center gap-2">
+              <a
+                href="https://www.linkedin.com/in/matheusmelotti/"
+                target="_blank"
+                className="flex items-center justify-center gap-2">
+                <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
                   <FaLinkedin className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
                   LinkedIn
-                </a>
-              </Button>
-              <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
-                <a
-                  href="https://github.com/melottii"
-                  target="_blank"
-                  className="flex items-center justify-center gap-2">
+                </Button>
+              </a>
+              <a
+                href="https://github.com/melottii"
+                target="_blank"
+                className="flex items-center justify-center gap-2">
+                <Button className="bg-accent text-primary px-5 py-2.5 sm:px-6 sm:py-3 rounded-md hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 group w-full sm:w-auto">
                   <PiGithubLogo className="text-lg sm:text-xl group-hover:scale-110 transition-transform" />
                   GitHub
-                </a>
-              </Button>
+                </Button>
+              </a>
             </div>
           </div>
 

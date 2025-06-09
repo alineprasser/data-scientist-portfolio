@@ -49,14 +49,15 @@ export default function ProjectContent({
             )}
           </div>
         </div>
-        <Button>
-          <PiGithubLogo />
-          <a
-            href={githubLink}
-            target="_blank">
+        <a
+          href={githubLink}
+          target="_blank"
+          className="w-full">
+          <Button className="w-full">
+            <PiGithubLogo />
             Ver projeto
-          </a>
-        </Button>
+          </Button>
+        </a>
       </div>
     </div>
   );
