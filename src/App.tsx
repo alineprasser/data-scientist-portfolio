@@ -1,15 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import "./App.css";
-import HeroSection from "@/components/HeroSection";
-import ProfessionalSection from "@/components/ProfessionalSection";
-import ProjectsSection from "@/components/ProjectsSection";
+import Certificates from "./pages/Certificates";
 
 function App() {
   return (
-    <main className="flex flex-col items-center justify-center w-screen bg-primary text-accent min-h-screen">
-      <HeroSection />
-      <ProfessionalSection />
-      <ProjectsSection />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+        />
+        <Route
+          path="/certificates"
+          element={<Certificates />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
