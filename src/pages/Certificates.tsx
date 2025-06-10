@@ -6,6 +6,7 @@ import { PiArrowLeft, PiMagnifyingGlass } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Footer from "@/components/Footer";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Certificates() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,49 +53,56 @@ export default function Certificates() {
       </nav>
 
       <div className="container flex flex-col w-full min-h-screen mx-auto px-4 pt-24 pb-12">
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h1 className="text-4xl text-accent font-bold mb-4">
-            Certificados e Conquistas
-          </h1>
-          <p className="text-muted text-lg">
-            Explore minha jornada de aprendizado e desenvolvimento profissional
-          </p>
-        </div>
-
-        <div className="max-w-md w-full mx-auto mb-12">
-          <div className="relative">
-            <PiMagnifyingGlass
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-              size={20}
-            />
-            <Input
-              type="text"
-              placeholder="Buscar certificados..."
-              value={searchQuery}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setSearchQuery(e.target.value)
-              }
-              className="pl-10 bg-background/5 border-accent/20 text-accent placeholder:text-muted-foreground focus-visible:ring-accent"
-            />
+        <AnimatedSection>
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <h1 className="text-4xl text-accent font-bold mb-4">
+              Certificados e Conquistas
+            </h1>
+            <p className="text-muted text-lg">
+              Explore minha jornada de aprendizado e desenvolvimento
+              profissional
+            </p>
           </div>
-        </div>
+        </AnimatedSection>
 
-        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 items-center justify-center w-full gap-6">
-          {filteredCertificates.length > 0 ? (
-            filteredCertificates.map((certificate) => (
-              <CertificateCard
-                key={certificate.codigo}
-                certificate={certificate}
+        <AnimatedSection delay={0.2}>
+          <div className="max-w-md w-full mx-auto mb-8">
+            <div className="relative">
+              <PiMagnifyingGlass
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                size={20}
               />
-            ))
-          ) : (
-            <div className="col-span-full text-center py-12">
-              <p className="text-muted/80 text-lg">
-                Nenhum certificado encontrado para "{searchQuery}"
-              </p>
+              <Input
+                type="text"
+                placeholder="Buscar certificados..."
+                value={searchQuery}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setSearchQuery(e.target.value)
+                }
+                className="pl-10 bg-background/5 border-accent/20 text-accent placeholder:text-muted-foreground focus-visible:ring-accent"
+              />
             </div>
-          )}
-        </div>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.4}>
+          <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 w-full gap-6 place-items-center">
+            {filteredCertificates.length > 0 ? (
+              filteredCertificates.map((certificate) => (
+                <CertificateCard
+                  key={certificate.codigo}
+                  certificate={certificate}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted/80 text-lg">
+                  Nenhum certificado encontrado para "{searchQuery}"
+                </p>
+              </div>
+            )}
+          </div>
+        </AnimatedSection>
       </div>
       <Footer />
     </main>

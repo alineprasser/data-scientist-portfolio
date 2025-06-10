@@ -3,6 +3,7 @@ import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 interface TimelineItem {
   year: string;
@@ -187,19 +188,25 @@ export default function ProfessionalSection() {
   return (
     <section
       id="professional"
-      className=" min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
-      <h2 className="text-4xl font-bold text-center">
-        Experiência Profissional
-      </h2>
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-6xl">
-        {timelineData.map((item, index) => (
-          <TimelineItem
-            key={`${item.year}-${index}`}
-            item={item}
-            index={index}
-          />
-        ))}
-      </ul>
+      className="min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+      <AnimatedSection>
+        <h2 className="text-4xl font-bold text-center">
+          Experiência Profissional
+        </h2>
+      </AnimatedSection>
+      <AnimatedSection
+        delay={0.2}
+        className="w-full max-w-6xl">
+        <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full">
+          {timelineData.map((item, index) => (
+            <TimelineItem
+              key={`${item.year}-${index}`}
+              item={item}
+              index={index}
+            />
+          ))}
+        </ul>
+      </AnimatedSection>
     </section>
   );
 }

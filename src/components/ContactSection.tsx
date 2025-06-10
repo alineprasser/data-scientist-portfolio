@@ -7,14 +7,19 @@ import {
 } from "react-icons/pi";
 import { Button } from "./ui/button";
 import { FaLinkedin } from "react-icons/fa";
+import AnimatedSection from "./AnimatedSection";
 
 export default function ContactSection() {
   return (
     <section
       id="contact"
       className="min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
-      <h2 className="text-4xl font-bold text-center">Vamos conversar?</h2>
-      <div className="flex flex-col gap-6 w-full sm:w-lg items-center justify-center shadow-lg bg-background rounded-md p-10">
+      <AnimatedSection>
+        <h2 className="text-4xl font-bold text-center">Vamos conversar?</h2>
+      </AnimatedSection>
+      <AnimatedSection
+        delay={0.2}
+        className="flex flex-col gap-6 w-full sm:w-lg items-center justify-center shadow-lg bg-background rounded-md p-10">
         <div className="flex items-center justify-center w-20 h-20 bg-primary/30 text-primary rounded-full">
           <PiCoffee size={32} />
         </div>
@@ -74,7 +79,7 @@ export default function ContactSection() {
             </Button>
           </a>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

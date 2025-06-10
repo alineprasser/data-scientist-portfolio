@@ -1,4 +1,5 @@
 import { PiBookOpenText, PiMedal, PiTrendUp } from "react-icons/pi";
+import AnimatedSection from "./AnimatedSection";
 
 export default function StatsSection() {
   const StatCard = ({
@@ -26,7 +27,7 @@ export default function StatsSection() {
     <section
       id="stats"
       className="w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
-      <div className="container flex flex-col items-center sm:items-stretch sm:flex-row w-full gap-10 justify-center">
+      <AnimatedSection className="container flex flex-col items-center sm:items-stretch sm:flex-row w-full gap-10 justify-center">
         <StatCard
           icon={<PiBookOpenText size={32} />}
           title="Horas de estudo"
@@ -42,7 +43,7 @@ export default function StatsSection() {
           title="Anos de experiência"
           value="+5"
         />
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

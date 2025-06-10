@@ -1,14 +1,17 @@
 import ProjectTab from "./ProjectTab";
 import ProjectContent from "./ProjectContent";
+import AnimatedSection from "./AnimatedSection";
 
 export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className=" min-h-screen w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
-      <h2 className="text-4xl font-bold text-center">Projetos</h2>
+      className="min-h-screen w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
+      <AnimatedSection>
+        <h2 className="text-4xl font-bold text-center">Projetos</h2>
+      </AnimatedSection>
 
-      <div className="tabs container tabs-box transition-all duration-300 w-full text-primary">
+      <AnimatedSection className="tabs container tabs-box transition-all duration-300 w-full text-primary">
         <ProjectTab
           title="Tradutor de Imagem"
           defaultChecked>
@@ -101,7 +104,7 @@ export default function ProjectsSection() {
             }
           />
         </ProjectTab>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }
