@@ -3,8 +3,8 @@ import ProjectContent from "./ProjectContent";
 
 export default function ProjectsSection() {
   return (
-    <section className=" min-h-screen bg-background w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
-      <h2 className="text-4xl font-bold text-center text-primary">Projetos</h2>
+    <section className=" min-h-screen w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
+      <h2 className="text-4xl font-bold text-center">Projetos</h2>
 
       <div className="tabs container tabs-box transition-all duration-300 w-full text-primary">
         <ProjectTab

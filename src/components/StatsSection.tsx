@@ -23,8 +23,8 @@ export default function StatsSection() {
   };
 
   return (
-    <section className="container w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
-      <div className="flex flex-col items-center sm:items-stretch sm:flex-row w-full gap-10 justify-center">
+    <section className="w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+      <div className="container flex flex-col items-center sm:items-stretch sm:flex-row w-full gap-10 justify-center">
         <StatCard
           icon={<PiBookOpenText size={32} />}
           title="Horas de estudo"
