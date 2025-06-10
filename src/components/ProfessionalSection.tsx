@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 interface TimelineItem {
   year: string;
@@ -123,6 +125,7 @@ const TimelineItem = ({
     ? "timeline-start text-start md:text-end"
     : "timeline-end text-start";
   const marginClass = isStart && "md:mb-10";
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <li className="w-full">
@@ -148,17 +151,28 @@ const TimelineItem = ({
             {item.skills && (
               <div
                 className={cn(
-                  "flex flex-wrap justify-start gap-2 pb-2",
+                  "flex flex-wrap items-baseline justify-start gap-2 pb-2",
                   isStart && "md:justify-end"
                 )}>
-                {item.skills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="accent"
-                    className="text-xs sm:text-sm ">
-                    {skill}
-                  </Badge>
-                ))}
+                {item.skills
+                  .slice(0, showAll ? item.skills.length : 3)
+                  .map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="accent"
+                      className="text-xs sm:text-sm ">
+                      {skill}
+                    </Badge>
+                  ))}
+                {item.skills.length > 3 && (
+                  <Button
+                    type="button"
+                    variant="link"
+                    className="px-1 py-1 leading-tight m-0 sm:text-accent underline text-xs group-hover:text-primary"
+                    onClick={() => setShowAll((prev) => !prev)}>
+                    {showAll ? "Mostrar menos" : "Mostrar todas"}
+                  </Button>
+                )}
               </div>
             )}
           </CardContent>
