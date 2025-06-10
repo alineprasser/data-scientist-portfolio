@@ -7,10 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Certificates() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  useSEO({
+    title: "Matheus Melotti | Certificados e Conquistas",
+    description:
+      "Explore minha jornada de aprendizado e desenvolvimento profissional através dos meus certificados e conquistas em Data Science.",
+    keywords:
+      "certificados, cursos, data science, machine learning, conquistas profissionais, educação continuada",
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
