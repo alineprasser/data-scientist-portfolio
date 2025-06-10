@@ -70,7 +70,7 @@ export default function ContactSection() {
             </Button>
           </a>
           <a
-            href="https://github.com/matheusmelotti"
+            href="https://github.com/melottii"
             target="_blank"
             className="flex w-full items-center justify-center gap-2">
             <Button className="w-full">
