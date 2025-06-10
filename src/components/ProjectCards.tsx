@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </span>
             </h3>
 
-            <div className="flex flex-col gap-4  overflow-y-scroll max-h-[45dvh]">
+            <div className="flex flex-col gap-4  overflow-y-scroll max-h-[40dvh]">
               <p className="text-gray-600 mb-4 text-sm lg:text-base leading-relaxed">
                 {project.description}
               </p>
