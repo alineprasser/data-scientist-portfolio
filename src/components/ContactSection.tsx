@@ -10,7 +10,9 @@ import { FaLinkedin } from "react-icons/fa";
 
 export default function ContactSection() {
   return (
-    <section className="min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+    <section
+      id="contact"
+      className="min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
       <h2 className="text-4xl font-bold text-center">Vamos conversar?</h2>
       <div className="flex flex-col gap-6 w-full sm:w-lg items-center justify-center shadow-lg bg-background rounded-md p-10">
         <div className="flex items-center justify-center w-20 h-20 bg-primary/30 text-primary rounded-full">
