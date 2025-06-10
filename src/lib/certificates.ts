@@ -100,16 +100,6 @@ export const certificates = [
       competencias: [],
     },
     {
-      titulo:
-        "Linguagem Natural parte 2: continuando com a análise de sentimento",
-      instituicao: "Alura",
-      data: "set de 2024",
-      codigo: "4cc81fc4-9d3b-4608-b6a4-08aa390af8d7",
-      link: "https://cursos.alura.com.br/certificate/4cc81fc4-9d3b-4608-b6a4-08aa390af8d7?lang",
-      logo: "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_100_100/company-logo_100_100/0/1710187635900/aluracursos_logo?e=1755129600&v=beta&t=5G4uDD1XEVOWr84uVFluYoE0zR3zk_tH9OI11amYPFg",
-      competencias: [],
-    },
-    {
       titulo: "NLP: regex e modelos de linguagem",
       instituicao: "Alura",
       data: "set de 2024",
