@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 import type { Project } from "../types/projetc";
 import { PiGithubLogo } from "react-icons/pi";
 import { Button } from "./ui/button";
