@@ -25,7 +25,7 @@ interface CertificateCardProps {
 
 export default function CertificateCard({ certificate }: CertificateCardProps) {
   return (
-    <Card className="w-full justify-between flex flex-col gap-4 border-none relative bg-card border-border card-hover overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+    <Card className=" w-[calc(100%-2rem)] lg:w-xs justify-between flex flex-col gap-4 border-none relative bg-card border-border card-hover overflow-hidden group hover:-translate-y-1 transition-all duration-300">
       <div className="relative overflow-hidden">
         <img
           src={certificate.logo}
@@ -34,9 +34,9 @@ export default function CertificateCard({ certificate }: CertificateCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/60 to-transparent"></div>
         <div className="absolute top-2 right-2">
-          <Badge variant="accent">
+          <Badge variant="certified">
             <PiMedal size={16} />
-            Certified
+            Certificado
           </Badge>
         </div>
       </div>
