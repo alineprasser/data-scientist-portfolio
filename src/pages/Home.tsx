@@ -12,21 +12,11 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center w-screen bg-primary text-accent min-h-screen">
       <Navbar />
       <HeroSection />
-      <div id="stats">
-        <StatsSection />
-      </div>
-      <div id="professional">
-        <ProfessionalSection />
-      </div>
-      <div id="projects">
-        <ProjectsSection />
-      </div>
-      <div id="certificates">
-        <CertificatesSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
+      <StatsSection />
+      <ProfessionalSection />
+      <ProjectsSection />
+      <CertificatesSection />
+      <ContactSection />
       <Footer />
     </main>
   );
