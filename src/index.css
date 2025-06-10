@@ -64,6 +64,7 @@ h1 {
   line-height: 1.1;
 }
 @theme inline {
+  --breakpoint-xs: 28rem;
   --font-fustat: "Fustat", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-sedan: "Sedan", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
