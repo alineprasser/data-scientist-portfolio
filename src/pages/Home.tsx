@@ -18,7 +18,7 @@ export default function Home() {
   });
 
   return (
-    <main className="flex flex-col items-center justify-center w-screen bg-primary text-accent min-h-screen">
+    <main className="flex flex-col items-center justify-center w-screen bg-primary text-accent min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <StatsSection />
