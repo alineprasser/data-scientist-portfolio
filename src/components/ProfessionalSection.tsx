@@ -91,12 +91,23 @@ const timelineData: TimelineItem[] = [
     ],
   },
   {
-    year: "Jul 2020 - Mar 2021",
+    year: "Abr 2021 - Jan 2022",
     title: "Estagiário de TI",
     description:
-      "Acompanhei a implementação da rede interna da escola, realizando a manutenção dos computadores e oferecendo suporte técnico a profissionais e clientes. Também gerenciei o sistema interno de alunos, garantindo seu funcionamento eficiente.",
-    company: "Escola Múltipla",
+      "Desenvolvimento de lógicas para extração e processamento de documentos digitalizados, implementação de dashboards e pipelines de mensageria em ambiente Kubernetes. Definição do novo padrão visual dos dashboards do projeto Detran-ES, liderança em reuniões de apresentação de resultados. Reconhecida como Funcionária que fez a diferença no projeto.",
+    company: "Vert Analytics",
     position: "end",
+    skills: [
+      "Extração de dados",
+      "Processamento de documentos",
+      "Dashboards",
+      "Mensageria",
+      "Kubernetes",
+      "Mineração de texto",
+      "Otimização de performance",
+      "Apresentação de resultados",
+      "Git",
+    ],
   },
 ];
 
