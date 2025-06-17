@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           />
         </div>
 
-        <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-between">
+        <div className="lg:w-1/2 px-6 py-3 lg:py-4 lg:px-8 flex flex-col justify-between">
           <div className="flex-1">
             <h3 className="flex justify-between items-center text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
               {project.title}
@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </span>
             </h3>
 
-            <div className="flex flex-col gap-4  overflow-y-scroll max-h-[40dvh]">
+            <div className="flex flex-col gap-4  overflow-y-scroll max-h-80">
               <p className="text-gray-600 mb-4 text-sm lg:text-base leading-relaxed">
                 {project.description}
               </p>

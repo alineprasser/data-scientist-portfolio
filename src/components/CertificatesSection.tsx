@@ -9,7 +9,7 @@ export default function CertificatesSection() {
   return (
     <section
       id="certificates"
-      className="container min-h-screen w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
+      className="container w-full flex flex-col gap-10 items-center justify-center px-2 sm:px-4 lg:px-6 py-12">
       <AnimatedSection>
         <div className="flex flex-col gap-2">
           <h2 className="text-4xl font-bold text-center">Certificados</h2>

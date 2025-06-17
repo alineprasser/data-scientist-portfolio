@@ -15,7 +15,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="min-h-screen w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
+      className=" w-full flex flex-col gap-10 items-center px-2 sm:px-4 lg:px-6 py-12">
       <AnimatedSection>
         <h2 className="text-4xl font-bold text-center">Projetos</h2>
       </AnimatedSection>
